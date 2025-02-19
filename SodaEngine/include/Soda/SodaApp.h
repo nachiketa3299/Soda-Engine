@@ -4,6 +4,8 @@
 
 namespace soda {
 
+class GObj;
+
 class SodaApp {
 public:
   SodaApp() = default;
@@ -11,6 +13,9 @@ public:
 
 public:
   void initialize(HWND hwnd, UINT width, UINT height);
+
+  void clear_render_target();
+  void copy_render_target(HDC src, HDC dest);
 
   void run();
 

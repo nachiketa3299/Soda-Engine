@@ -6,6 +6,8 @@
 
 #include <Soda/SodaApp.h>
 
+#include "LoadScene.h";
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -21,11 +23,11 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+int APIENTRY wWinMain(
+	_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
-	_In_ int       nCmdShow)
-{
+	_In_ int       nCmdShow) {
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -37,8 +39,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	MyRegisterClass(hInstance);
 
 	// 애플리케이션 초기화를 수행합니다:
-	if (!InitInstance(hInstance, nCmdShow))
-	{
+	if (!InitInstance(hInstance, nCmdShow)) {
 		return FALSE;
 	}
 
@@ -49,20 +50,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	// GetMessage -> 프로세스에서 발생한 메시지를 메시지 큐에서 가져옴. 메시지 큐가 없다면 아무 메시지도 가져오지 않는다.
 	// PeekMessage -> 메시지 큐의 메시지 유무와 관계 없이 함수가 리턴된다. 리턴 값이 true인 경우 메시지가 있꼬, false인 경우에는 메시지가 없다고 알려준다.
 
-	while (true)
-	{
-		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
-		{
+	while (true) {
+		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
 			if (msg.message == WM_QUIT) break;
 
-			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-			{
+			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) {
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
 		}
-		else
-		{
+		else {
 			// Game Logic
 			g_app.run();
 		}
@@ -71,15 +68,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	return (int)msg.wParam;
 }
 
-
-
 //
 //  함수: MyRegisterClass()
 //
 //  용도: 창 클래스를 등록합니다.
 //
-ATOM MyRegisterClass(HINSTANCE hInstance)
-{
+ATOM MyRegisterClass(HINSTANCE hInstance) {
 	WNDCLASSEXW wcex;
 
 	wcex.cbSize = sizeof(WNDCLASSEX);
@@ -109,8 +103,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //        이 함수를 통해 인스턴스 핸들을 전역 변수에 저장하고
 //        주 프로그램 창을 만든 다음 표시합니다.
 //
-BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
-{
+BOOL InitInstance(HINSTANCE hInstance, int nCmdShow) {
 	hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
 	UINT const w = 800;
@@ -124,12 +117,14 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 		hInstance, nullptr
 	);
 
-	if (!hwnd)
-	{
+	if (!hwnd) {
 		return FALSE;
 	}
 
 	g_app.initialize(hwnd, w, h);
+
+	// 씬을 로드한다
+	soda::LoadScenes();
 
 	return TRUE;
 }

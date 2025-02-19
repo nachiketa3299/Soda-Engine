@@ -1,5 +1,6 @@
 #include "Soda/SodaApp.h"
 
+#include "Soda/SceneManager.h"
 #include "Soda/Input.h"
 #include "Soda/Time.h"
 
@@ -15,11 +16,7 @@ void soda::SodaApp::initialize(HWND hwnd, UINT width, UINT height) {
 	width_ = rect.right - rect.left;
 	height_ = rect.bottom - rect.top;
 
-	SetWindowPos(hwnd, nullptr, 
-	  0, 0, 
-		width_, height_, 
-		0
-	);
+	SetWindowPos(hwnd, nullptr, 0, 0, width_, height_, 0);
 	ShowWindow(hwnd, true);
 
 	// 윈도우 해상도에 맞는 백버퍼(도화지) 생성
@@ -32,6 +29,16 @@ void soda::SodaApp::initialize(HWND hwnd, UINT width, UINT height) {
 
 	Input::initialize();
 	Time::initialize();
+	SceneManager::initialize();
+}
+
+void soda::SodaApp::clear_render_target() {
+	Rectangle(bdc_, 0, 0, width_, height_);
+}
+
+void soda::SodaApp::copy_render_target(HDC src, HDC dest) {
+	// Back Buffer에 있는 것을 워본 버퍼에 복사
+	BitBlt(dest, 0, 0, width_, height_, src, 0, 0, SRCCOPY);
 }
 
 void soda::SodaApp::run() {
@@ -42,14 +49,14 @@ void soda::SodaApp::run() {
 void soda::SodaApp::update() {
 	Input::update();
 	Time::update();
+	SceneManager::update();
 }
 
 void soda::SodaApp::render() {
+	clear_render_target();
 
-	// 도화지에 그리고
-	// Rectangle(bdc_, 0, 0, 10, 20);
 	Time::render(bdc_);
+	SceneManager::render(bdc_);
 
-	// Back Buffer에 있는 것을 워본 버퍼에 복사
-	BitBlt(dc_, 0, 0, width_, height_, bdc_, 0, 0, SRCCOPY);
+	copy_render_target(bdc_, dc_);
 }

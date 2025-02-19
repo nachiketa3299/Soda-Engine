@@ -133,11 +133,14 @@
   <ItemGroup>
     <ClInclude Include="Editor.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="LoadScene.h" />
+    <ClInclude Include="PlayScene.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Editor.cpp" />
+    <ClCompile Include="PlayScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Editor.rc" />

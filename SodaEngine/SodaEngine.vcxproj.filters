@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Soda\GameObject.h">
+    <ClInclude Include="include\Soda\GObj.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="include\Soda\Input.h">
@@ -27,9 +27,18 @@
     <ClInclude Include="include\Soda\Time.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="include\Soda\Scene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Soda\GEntity.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Soda\SceneManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\GameObject.cc">
+    <ClCompile Include="src\GObj.cc">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="src\Input.cc">
@@ -39,6 +48,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="src\Time.cc">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cc">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GEntity.cc">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager.cc">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -159,14 +159,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\Soda\GameObject.h" />
+    <ClInclude Include="include\Soda\GEntity.h" />
+    <ClInclude Include="include\Soda\GObj.h" />
     <ClInclude Include="include\Soda\Input.h" />
+    <ClInclude Include="include\Soda\Scene.h" />
+    <ClInclude Include="include\Soda\SceneManager.h" />
     <ClInclude Include="include\Soda\SodaApp.h" />
     <ClInclude Include="include\Soda\Time.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\GameObject.cc" />
+    <ClCompile Include="src\GEntity.cc" />
+    <ClCompile Include="src\GObj.cc" />
     <ClCompile Include="src\Input.cc" />
+    <ClCompile Include="src\Scene.cc" />
+    <ClCompile Include="src\SceneManager.cc" />
     <ClCompile Include="src\SodaApp.cc" />
     <ClCompile Include="src\Time.cc" />
   </ItemGroup>
