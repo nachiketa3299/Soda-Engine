@@ -1,5 +1,7 @@
 #include "Soda/GEntity.h"
 
+#include <string>
+
 namespace soda {
 
 GEntity::~GEntity() {}

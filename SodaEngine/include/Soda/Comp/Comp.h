@@ -1,7 +1,5 @@
 #pragma once
 
-#include <vector>
-
 #include "Soda/WinCommon.h"
 
 #include "Soda/GEntity.h"
@@ -10,23 +8,22 @@ namespace soda {
 
 class GObj;
 
-class Scene: public GEntity {
+class Comp: public GEntity {
 public:
-  Scene() = default;
-  ~Scene() override;
+  Comp() = default;
+  ~Comp() = default;
 
-public:
   virtual void initialize();
   virtual void pre_update();
   virtual void update();
   virtual void post_update();
   virtual void render(HDC hdc);
 
-  void add_g_obj(GObj *g_obj);
-
+  void set_owner(GObj *owner);
+  GObj *get_owner() const;
+  
 private:
-  std::vector<GObj *> g_objs_{};
-
+  GObj *owner_{nullptr};
 };
 
 }

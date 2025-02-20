@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "Soda/Time.h"
 
 // Static 멤버 초기화
@@ -27,21 +25,8 @@ void soda::Time::update() {
   prev_freq_.QuadPart = cur_freq_.QuadPart;
 }
 
-#define SODA_TIME_DEBUG_BUFF_LEN 128
 
 void soda::Time::render(HDC hdc) {
-  static float time = .0f;
-  time += delta_time_;
-
-  float const fps = 1.f / delta_time_;
-
-  wchar_t str[SODA_TIME_DEBUG_BUFF_LEN] = L"";
-  // TODO: 이거 하는일이 뭐야?
-  swprintf_s(str, SODA_TIME_DEBUG_BUFF_LEN, L">Time: %.3f\n> FPS: %.3f", time, fps);
-  size_t const len = wcsnlen_s(str, SODA_TIME_DEBUG_BUFF_LEN);
-  RECT rect{10, 10, 300, 300};
-  DrawText(hdc, str, -1, &rect, DT_LEFT);
-  // TextOut(hdc, 0, 0, str, len);
 }
 
 float soda::Time::get_dt() {

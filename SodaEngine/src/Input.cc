@@ -1,6 +1,9 @@
-#include <windows.h>
-
 #include "Soda/Input.h"
+
+#include <array>
+
+#include "Soda/WinCommon.h"
+
 
 std::array<soda::Input::Key, (size_t)soda::KeyCode::End> soda::Input::keys_;
 std::array<char, (size_t)soda::KeyCode::End> soda::Input::ch_keys_;

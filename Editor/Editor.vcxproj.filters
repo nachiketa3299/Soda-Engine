@@ -30,15 +30,24 @@
     <ClInclude Include="LoadScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="PlayScene.h">
+    <ClInclude Include="TestGame\include\PlayScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TestGame\include\Character.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Editor.cpp">
+    <ClCompile Include="Editor.cc">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="PlayScene.cpp">
+    <ClCompile Include="TestGame\src\PlayScene.cc">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TestGame\src\Character.cc">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadScene.cc">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,5 +63,14 @@
     <Image Include="Editor.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resources\rukia.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="TestGame\resources\rukia.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Editor.aps" />
   </ItemGroup>
 </Project>

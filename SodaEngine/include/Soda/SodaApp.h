@@ -1,6 +1,6 @@
 #pragma once
 
-#include <windows.h>
+#include "WinGdiCommon.h"
 
 namespace soda {
 
@@ -14,8 +14,8 @@ public:
 public:
   void initialize(HWND hwnd, UINT width, UINT height);
 
-  void clear_render_target();
-  void copy_render_target(HDC src, HDC dest);
+  void clear_render_target() const;
+  void copy_render_target(HDC src, HDC dest) const;
 
   void run();
 
@@ -28,10 +28,13 @@ private:
   // 버퍼용 dc
   HDC bdc_{nullptr};
 
-  UINT width_;
-  UINT height_;
+  UINT width_{};
+  UINT height_{};
 
-  HBITMAP buffer_;
+  HBITMAP buffer_{};
+
+  ULONG_PTR gdi_token_;
+  Gdiplus::GdiplusStartupInput gdi_sinput;
 };
 
 }

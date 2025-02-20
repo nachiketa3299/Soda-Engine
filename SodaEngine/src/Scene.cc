@@ -1,4 +1,7 @@
 #include "Soda/Scene.h"
+
+#include "Soda/WinCommon.h"
+
 #include "Soda/GObj.h"
 
 namespace soda {
@@ -9,6 +12,12 @@ Scene::~Scene() {
 void Scene::initialize() {
   for (auto *g_obj: g_objs_) {
     g_obj->initialize();
+  }
+}
+
+void Scene::pre_update() {
+  for (auto *g_obj: g_objs_) {
+    g_obj->pre_update();
   }
 }
 

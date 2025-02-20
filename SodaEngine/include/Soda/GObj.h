@@ -1,32 +1,53 @@
 #pragma once
 
-#include <windows.h>
+#include <vector>
+
+#include "Soda/WinCommon.h"
 
 #include "Soda/GEntity.h"
 
 namespace soda {
 
+class Comp;
+
 class GObj: public GEntity {
-  public:
-    GObj() = default;
-    ~GObj() = default;
-
-    void set_pos(int x, int y);
-
-    int get_pos_x() const;
-    int get_pos_y() const;
+public:
+  GObj() = default;
+  ~GObj();
 
 public:
-    void initialize();
+  virtual void initialize();
 
-    void pre_update();
-    void update();
-    void post_update();
-    void render(HDC dc);
+  virtual void pre_update();
+  virtual void update();
+  virtual void post_update();
+  virtual void render(HDC dc);
 
-  private:
-    int x_;
-    int y_;
+public:
+  template <typename T>
+  T *add_comp() {
+    T *comp = new T();
+    comp->set_owner(this);
+    comps_.push_back(comp);
+
+    return comp;
+  }
+
+  template <typename T>
+  T *get_comp() {
+    for (Comp *comp: comps_) {
+      T *t_comp = dynamic_cast<T *>(comp);
+
+      if (t_comp != nullptr) {
+        return t_comp;
+      }
+    }
+
+    return nullptr;
+  }
+
+private:
+  std::vector<Comp *> comps_;
 };
 
 }

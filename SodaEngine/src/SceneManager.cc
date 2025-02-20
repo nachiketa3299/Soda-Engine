@@ -1,4 +1,10 @@
 #include "Soda/SceneManager.h"
+
+#include <map>
+#include <string>
+
+#include "Soda/WinCommon.h"
+
 #include "Soda/Scene.h"
 
 namespace soda {
@@ -22,6 +28,10 @@ Scene *SceneManager::load_scene(std::wstring const &name) {
   return a_scene_ = it->second;
 }
 
+void SceneManager::pre_update() {
+  a_scene_->pre_update();
+}
+
 void SceneManager::update() {
   a_scene_->update();
 }
@@ -34,5 +44,8 @@ void SceneManager::render(HDC hdc) {
   a_scene_->render(hdc);
 }
 
+Scene *SceneManager::get_a_scene() {
+  return a_scene_;
+}
 
 }

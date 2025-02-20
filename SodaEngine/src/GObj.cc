@@ -1,30 +1,44 @@
 #include "Soda/GObj.h"
-#include "Soda/Input.h"
 
-void soda::GObj::set_pos(int x, int y) {
-  x_ = x;
-  y_ = y;
+#include "Soda/Comp/Comp.h"
+
+namespace soda {
+
+GObj::~GObj() {
+  for (Comp *comp: comps_) {
+    delete comp;
+    comp = nullptr;
+  }
 }
 
-int soda::GObj::get_pos_x() const {
-  return x_;
+void GObj::initialize() {
+  for (Comp *comp: comps_) {
+    comp->initialize();
+  }
 }
 
-int soda::GObj::get_pos_y() const {
-  return y_;
+void GObj::pre_update() {
+  for (Comp *comp: comps_) {
+    comp->pre_update();
+  }
 }
 
-void soda::GObj::pre_update() {
+void GObj::update() {
+  for (Comp *comp: comps_) {
+    comp->update();
+  }
 }
 
-void soda::GObj::initialize() {
+void GObj::post_update() {
+  for (Comp *comp: comps_) {
+    comp->post_update();
+  }
 }
 
-void soda::GObj::update() {
+void GObj::render(HDC dc) {
+  for (Comp *comp: comps_) {
+    comp->render(dc);
+  }
 }
 
-void soda::GObj::post_update() {
-}
-
-void soda::GObj::render(HDC dc) {
 }

@@ -1,6 +1,10 @@
 #pragma once
 
+#include <Soda/WinCommon.h>
+
 #include <Soda/Scene.h>
+
+namespace tg {
 
 class PlayScene: public soda::Scene {
 public:
@@ -9,3 +13,5 @@ public:
   void post_update() override;
   void render(HDC hdc) override;
 };
+
+}

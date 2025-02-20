@@ -6,7 +6,7 @@
 
 #include <Soda/SodaApp.h>
 
-#include "LoadScene.h";
+#include "LoadScene.h"
 
 #define MAX_LOADSTRING 100
 
@@ -28,6 +28,7 @@ int APIENTRY wWinMain(
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
 	_In_ int       nCmdShow) {
+
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -124,7 +125,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow) {
 	g_app.initialize(hwnd, w, h);
 
 	// 씬을 로드한다
-	soda::LoadScenes();
+	LoadScenes();
 
 	return TRUE;
 }

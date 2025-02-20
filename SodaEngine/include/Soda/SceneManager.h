@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 
-#include <windows.h>
+#include "Soda/WinCommon.h"
 
 namespace soda {
 
@@ -31,10 +31,14 @@ public:
 public:
   static void initialize();
 
+  static void pre_update();
   static void update();
   static void post_update();
 
   static void render(HDC hdc);
+
+public:
+  static Scene *get_a_scene();
 
 private:
   static std::map<std::wstring, Scene *> sc_tree_;

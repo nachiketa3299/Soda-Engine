@@ -92,12 +92,17 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -111,6 +116,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -119,6 +125,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -130,12 +140,17 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -149,6 +164,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -157,24 +173,42 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Soda\WinCommon.h" />
+    <ClInclude Include="include\Soda\Comp\Comp.h" />
+    <ClInclude Include="include\Soda\Comp\Transform.h" />
     <ClInclude Include="include\Soda\GEntity.h" />
     <ClInclude Include="include\Soda\GObj.h" />
     <ClInclude Include="include\Soda\Input.h" />
+    <ClInclude Include="include\Soda\Math\V2.h" />
+    <ClInclude Include="include\Soda\Rsc.h" />
+    <ClInclude Include="include\Soda\Rscs.h" />
     <ClInclude Include="include\Soda\Scene.h" />
     <ClInclude Include="include\Soda\SceneManager.h" />
     <ClInclude Include="include\Soda\SodaApp.h" />
     <ClInclude Include="include\Soda\Time.h" />
+    <ClInclude Include="include\Soda\WinGdiCommon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\Soda\Comp\SpriteRenderer.h" />
+    <ClCompile Include="src\Comp.cc" />
     <ClCompile Include="src\GEntity.cc" />
     <ClCompile Include="src\GObj.cc" />
     <ClCompile Include="src\Input.cc" />
+    <ClCompile Include="src\Rsc.cc" />
+    <ClCompile Include="src\Rscs.cc" />
     <ClCompile Include="src\Scene.cc" />
     <ClCompile Include="src\SceneManager.cc" />
     <ClCompile Include="src\SodaApp.cc" />
+    <ClCompile Include="src\SpriteRenderer.cc" />
     <ClCompile Include="src\Time.cc" />
+    <ClCompile Include="src\Transform.cc" />
+    <ClCompile Include="src\V2.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
